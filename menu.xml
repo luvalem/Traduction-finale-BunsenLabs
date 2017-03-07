@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/                 file:///usr/share/openbox/menu.xsd">
+	<menu id="exit-menu" label="Exit">
+		<item label="Log out">
+			<action name="Execute">
+				<command>
+                    bl-exit --logout
+                </command>
+			</action>
+		</item>
+		<item label="Suspend">
+			<action name="Execute">
+				<command>
+                    bl-exit --suspend
+                </command>
+			</action>
+		</item>
+		<item label="Reboot">
+			<action name="Execute">
+				<command>
+                    bl-exit --reboot
+                </command>
+			</action>
+		</item>
+		<item label="Power off">
+			<action name="Execute">
+				<command>
+                    bl-exit --poweroff
+                </command>
+			</action>
+		</item>
+	</menu>
+	<menu id="root-menu" label="Openbox 3">
+		<menu execute="bl-places-pipemenu" id="pipe-placesmenu" label="Emplacements"/>
+		<menu execute="bl-recent-files-pipemenu -rl15" id="pipe-recentfilesmenu" label="Fich. Récents"/>
+		<item label="Lancer Programme">
+			<action name="Execute">
+				<command>gmrun</command>
+			</action>
+		</item>
+		<separator/>
+		<item label="Terminal">
+			<action name="Execute">
+				<command>
+                    x-terminal-emulator
+                </command>
+			</action>
+		</item>
+		<item label="Navig. Web">
+			<action name="Execute">
+				<command>x-www-browser</command>
+			</action>
+		</item>
+		<item label="Navig. Fichiers">
+			<action name="Execute">
+				<command>bl-file-manager</command>
+			</action>
+		</item>
+		<item label="Edit. Texte">
+			<action name="Execute">
+				<command>bl-text-editor</command>
+			</action>
+		</item>
+		<item label="VLC">
+			<action name="Execute">
+				<command>bl-media-player</command>
+			</action>
+		</item>
+		<separator/>
+		<menu id="accessories" label="Accessoires">
+			<item label="Rech. Fichier">
+				<action name="Execute">
+					<command>catfish</command>
+				</action>
+			</item>
+			<item label="Extract. Fichiers">
+				<action name="Execute">
+					<command>file-roller</command>
+				</action>
+			</item>
+			<item label="Manag. Tâches">
+				<action name="Execute">
+					<command>x-terminal-emulator -T 'htop task manager' -e htop</command>
+				</action>
+			</item>
+			<item label="BLOB Themes Manager">
+				<action name="Execute">
+					<command>
+                        bl-obthemes
+                    </command>
+				</action>
+			</item>
+		</menu>
+		<menu execute="bl-graphics-pipemenu" id="bl-graphics-pipemenu" label="Graphisme"/>
+		<menu execute="bl-multimedia-pipemenu" id="bl-multimedia-pipemenu" label="Multimedia"/>
+		<menu id="network" label="Réseau">
+			<menu execute="bl-x-www-browser-pipemenu" id="wwwbrowsers" label="Navig. internet"/>
+			<item label="Filezilla FTP">
+				<action name="Execute">
+					<command>filezilla</command>
+				</action>
+			</item>
+			<item label="Transmission BitTorrent">
+				<action name="Execute">
+					<command>transmission-gtk</command>
+				</action>
+			</item>
+			<item label="HexChat IRC">
+				<action name="Execute">
+					<command>hexchat</command>
+				</action>
+			</item>
+			<item label="Fich. Distants">
+				<action name="Execute">
+					<command>gigolo</command>
+				</action>
+			</item>
+			<menu execute="bl-remote-desktop-pipemenu" id="remotedesktop" label="Bur. distants"/>
+			<menu execute="bl-sshconfig-pipemenu" id="sshconfig" label="SSH"/>
+			<separator label="Services"/>
+			<menu execute="bl-dropbox-pipemenu" id="dropbox" label="Dropbox"/>
+		</menu>
+		<menu id="office" label="Bureautique">
+			<menu execute="bl-libreoffice-pipemenu" id="libreoffice" label="LibreOffice"/>
+			<item label="Google Docs">
+				<action name="Execute">
+					<command>
+                        x-www-browser https://drive.google.com/
+                    </command>
+				</action>
+			</item>
+			<item label="Feuille Calcul">
+				<action name="Execute">
+					<command>gnumeric</command>
+				</action>
+			</item>
+			<item label="Calculatrice">
+				<action name="Execute">
+					<command>galculator</command>
+				</action>
+			</item>
+			<item label="Evince PDF">
+				<action name="Execute">
+					<command>evince</command>
+				</action>
+			</item>
+		</menu>
+		<separator/>
+		<menu id="preferences" label="Préférences">
+			<menu id="obConfig" label="Openbox">
+				<item label="Editer menu.xml">
+					<action name="Execute">
+						<command>bl-text-editor ~/.config/openbox/menu.xml</command>
+					</action>
+				</item>
+				<item label="Editer rc.xml">
+					<action name="Execute">
+						<command>bl-text-editor ~/.config/openbox/rc.xml</command>
+					</action>
+				</item>
+				<item label="Editer autostart">
+					<action name="Execute">
+						<command>bl-text-editor ~/.config/openbox/autostart</command>
+					</action>
+				</item>
+				<separator/>
+				<item label="Editeur Menu Graphique">
+					<action name="Execute">
+						<command>obmenu</command>
+					</action>
+				</item>
+				<item label="Outil Configuration Graphique">
+					<action name="Execute">
+						<command>obconf</command>
+					</action>
+				</item>
+				<item label="Comment Editer Menu">
+					<action name="Execute">
+						<command>yad --button=&quot;OK&quot;:0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;How to Edit the Menu&quot; --filename=&quot;/usr/share/bunsen/docs/helpfile-menu.txt&quot; --width=900 --height=700 --fontname=Monospace</command>
+					</action>
+				</item>
+				<separator/>
+				<item label="Reconfigurer">
+					<action name="Reconfigure"/>
+				</item>
+				<item label="Redémarrer">
+					<action name="Restart"/>
+				</item>
+			</menu>
+			<menu execute="bl-compositor" id="CompositingPipeMenu" label="Compositor"/>
+			<menu execute="bl-conky-pipemenu" id="pipe-conkymenu" label="Conky"/>
+			<menu execute="bl-tint2-pipemenu" id="pipe-tint2menu" label="Tint2"/>
+			<item label="Apparence">
+				<action name="Execute">
+					<command>lxappearance</command>
+				</action>
+			</item>
+			<item label="Fond Ecran">
+				<action name="Execute">
+					<command>nitrogen</command>
+				</action>
+			</item>
+			<item label="Notifications">
+				<action name="Execute">
+					<command>xfce4-notifyd-config</command>
+				</action>
+			</item>
+			<item label="Gest .Energie">
+				<action name="Execute">
+					<command>xfce4-power-manager-settings</command>
+				</action>
+			</item>
+			<menu id="dmenuconfig" label="dmenu">
+				<item label="Editer Script">
+					<action name="Execute">
+						<command>bl-text-editor ~/.config/dmenu/dmenu-bind.sh</command>
+					</action>
+				</item>
+				<separator label="Aide?"/>
+				<item label="Man. Page">
+					<action name="Execute">
+						<command>x-terminal-emulator -T 'man dmenu' -e man dmenu</command>
+					</action>
+				</item>
+			</menu>
+			<menu id="gmrunconfig" label="gmrun">
+				<item label="Edit . Fich. Config">
+					<action name="Execute">
+						<command>bl-text-editor ~/.gmrunrc</command>
+					</action>
+				</item>
+				<separator label="Aide?"/>
+				<item label="Man. Page">
+					<action name="Execute">
+						<command>x-terminal-emulator -T 'man gmrun' -e man gmrun</command>
+					</action>
+				</item>
+			</menu>
+			<menu id="DisplaySettings" label="Affichage">
+				<item label="Editeur Affich. Ecran">
+					<action name="Execute">
+						<command>arandr</command>
+					</action>
+				</item>
+				<separator label="Aide?"/>
+				<item label="Man. Xrandr">
+					<action name="Execute">
+						<command>x-terminal-emulator -T 'man xrandr' -e man xrandr</command>
+					</action>
+				</item>
+			</menu>
+		</menu>
+		<menu id="system" label="Systeme">
+			<menu execute="bl-printing-pipemenu" id="PrintingPipeMenu" label="Imprimantes"/>
+			<item label="Gest. Paquets Synaptic">
+				<action name="Execute">
+					<command>gksudo synaptic</command>
+				</action>
+			</item>
+			<item label="Gest. Fich. Root">
+				<action name="Execute">
+					<command>gksudo bl-file-manager</command>
+				</action>
+			</item>
+			<item label="Edit. Texte Root">
+				<action name="Execute">
+					<command>gksudo bl-text-editor</command>
+				</action>
+			</item>
+			<item label="Paramètre de Connex.">
+				<action name="Execute">
+					<command>gksudo bl-text-editor /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf</command>
+				</action>
+			</item>
+			<item label="Gest. Partitions">
+				<action name="Execute">
+					<command>gksudo gparted</command>
+				</action>
+			</item>
+			<item label="Edit. Alternatives Debian ">
+				<action name="Execute">
+					<command>gksudo galternatives</command>
+				</action>
+			</item>
+			<separator/>
+			<item label="A Propos Alternat.  Bunsen ">
+				<action name="Execute">
+					<execute>yad --button=&quot;OK&quot;:0 --center --window-icon=distributor-logo-bunsenlabs --text-info --title=&quot;About Bunsen Alternatives&quot; --filename=&quot;/usr/share/bunsen/docs/helpfile-bl-alternatives.txt&quot; --width=900 --height=700 --fontname=Monospace
+                    </execute>
+				</action>
+			</item>
+		</menu>
+		<separator/>
+		<menu execute="bl-help-pipemenu" id="help" label="Aide &amp; Resources"/>
+		<menu execute="bl-kb-pipemenu" id="keybinds" label="Raccourc. Clavier"/>
+		<separator/>
+		<item label="Verroull. Ecran">
+			<action name="Execute">
+				<command>bl-lock</command>
+			</action>
+		</item>
+		<item label="Quitter">
+			<action name="Execute">
+				<command>bl-exit</command>
+			</action>
+		</item>
+		<!-- comment out or remove the preceding "Exit" item,
+and uncomment the following "exit-menu"
+for one-click exit options. -->
+		<!--
+        <menu id="exit-menu"></menu>
+-->
+	</menu>
+</openbox_menu>
